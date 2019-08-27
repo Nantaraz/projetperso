@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authentication';
 import { withRouter } from 'react-router-dom';
-import {MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,MDBDropdown} from "mdbreact";
+import {MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse} from "mdbreact";
 import Logo from './logo.png'
 
 class Navbar extends Component {
@@ -40,7 +40,7 @@ class Navbar extends Component {
         <div class="navbar-collapse collapse" id="admin">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="a"><i class="fa fa-user-circle"></i> Admin </a>
+                    <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="a"><i class="fa fa-user-circle"></i> Recruteur </a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
                     <li><a href="a" to="/login" onClick={this.onLogout.bind(this)}><i class="fa fa-sign-out" ></i> Déconnecter</a></li>
                     </ul>

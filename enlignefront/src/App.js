@@ -52,7 +52,7 @@ class App extends Component {
                   <Route exact path="/offre" component={ OffreEmploi } /> 
                   {/* <PrivateRoute exact path="/admin" component={Login}/> */}
                 </div>
-              <FooterPage />
+              {/* <FooterPage /> */}
             </div>
           </Router>
         </Provider>

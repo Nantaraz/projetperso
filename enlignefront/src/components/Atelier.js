@@ -65,52 +65,49 @@ class Home extends React.Component {
               id = "inputatelier"
               value={this.state.Titre}
               onChange={this.onChange}
-              placeholder="Titre"
+              placeholder="Intitulité du poste"
               name="Titre" /><br></br>
-            <textarea type="text"
+            <input type="text"
               id = "inputdes"
               value={this.state.Description}
               onChange={this.onChange}
-              placeholder="Déscription"
+              placeholder="Type de contrat"
               name="Description" /><br></br>
-              <label>Date :</label>
-            <input type="date"
+            <input type="text"
               id = "inputtime"
               value={this.state.Date}
               onChange={this.onChange}
-              placeholder="Date"
-              name="Date" /><br></br> 
-              <label>Début:</label> 
-            <input type="time"
+              placeholder="Expérience exigée"
+              name="Date" /><br></br>  
+            <input type="Number"
               id = "inputtime"
               value={this.state.HoraireDebut}
               onChange={this.onChange}
-              placeholder="Horaire Début"
+              placeholder="Salaire"
               name="HoraireDebut" /><br></br>
-              <label>Durée</label>
-            <input type="time"
+            <input type="text"
               id = "inputtime"
               value={this.state.Duree}
               onChange={this.onChange}
-              placeholder="Durée"
+              placeholder="Specialité de l'entreprise"
               name="Duree" /><br></br>
-            <input type="Number"
+            <input type="text"
               id = "inputatelier"
               value={this.state.NombrePlacesDispo}
               onChange={this.onChange}
-              placeholder="Place Dispo"
+              placeholder="type de fonction"
               name="NombrePlacesDispo" /><br></br>
             <input type="Number"
               id = "inputatelier"
               value={this.state.NombrePlacesRes}
               onChange={this.onChange}
-              placeholder="Place Res"
+              placeholder="nombre à recruter souhaité"
               name="NombrePlacesRes" /><br></br>       
-            <input type="Number"
+            <input type="text"
               id = "inputatelier"
               value={this.state.Prix}
               onChange={this.onChange}
-              placeholder="Prix"
+              placeholder="adresse entreprise"
               name="Prix" /><br></br><br></br>    
               <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br></br> <br></br>  
               {/* <button type="submit" id="butatelier">Ajouter</button> */}

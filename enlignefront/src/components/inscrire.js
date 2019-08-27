@@ -1,115 +1,58 @@
 
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default class Inscrire extends Component {
   constructor(props) {
-    super(props);
-    this.onChangenom = this.onChangenom.bind(this);
-    this.onChangeprenom = this.onChangeprenom.bind(this);
-    this.onChangeemail = this.onChangeemail.bind(this);
-    this.onChangetelephone = this.onChangetelephone.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-
-    this.state = {
-      Nom: '',
-      Prenom: '',
-      Email:'',
-      Telephone:''
+      super(props);
+  
+      this.state = {
+        photo_profil1:'',
+        photo_profil2:''
+  
+      };
+      this.onChange = this.onChange.bind(this)
+      this.handleUploadImage = this.handleUploadImage.bind(this);
     }
+    onChange(event) {
+      this.setState({
+          [event.target.name]: event.target.value
+      })
   }
-  onChangenom(e) {
-    this.setState({
-      Nom: e.target.value
-    });
-  }
-  onChangeprenom(e) {
-    this.setState({
-      Prenom: e.target.value
-    })  
-  }
-  onChangeemail(e) {
-    this.setState({
-      Email: e.target.value
-    })
-  }
-  onChangetelephone(e) {
-    this.setState({
-      Telephone: e.target.value
-    })
-  }
-
-  onSubmit(e) {
-    e.preventDefault();
-    const obj = {
-      Nom: this.state.Nom,
-      Prenom: this.state.Prenom,
-      Telephone: this.state.Telephone,
-      Email: this.state.Email,
-      
-    };
-    axios.post('http://localhost:8080/particulier/'+localStorage.getItem('ti'), obj)
-        .then(res => console.log(res.data));
-    
-    this.setState({
-      Nom: '',
-      Prenom: '',
-      Email: '',
-      Telephone:''
-    })
-  }
+    handleUploadImage(ev) {
+      ev.preventDefault();
+      const data = new FormData();
+      data.append('photo_profil1', this.uploadInput.files[0]);
+      data.append('photo_profil2', this.uploadInput.files[0]);
+      fetch('http://localhost:8080/candidat/'+localStorage.getItem('travail'), {
+        method: 'POST',
+        body: data,
+      }).then((response) => {
+        response.json().then((body) => {
+          this.setState({ photo_profil1: `http://localhost:8080/candidat/${body.photo_profil1}`});
+          this.setState({ photo_profil2: `http://localhost:8080/candidat/${body.photo_profil2}`});
+          console.log('ity ilay body.fil',body.photo_profil1);
+          console.log('ity ilay body.fil',body.photo_profil2);
+          
+        });
+      }).catch(err=>{
+        console.log("diso");
+        
+      })
+    }
  
   render() {
     return (
         <div style={{ marginTop: 10 }}>
            
-            <form onSubmit={this.onSubmit}>
+            <form onSubmit={this.handleUploadImage}>
             <h3>Veuillez nous envoyer vos CV et vos LM</h3>
-                <center><div className="form-group">
-                    <input 
-                      id="inputatelier"
-                      type="text" 
-                      className="form-control" 
-                      placeholder="Nom"
-                      value={this.state.Nom}
-                      onChange={this.onChangenom}
-                      required
-                      />
-                </div>
-                <div className="form-group">
-                    <input type="text"
-                     id="inputatelier" 
-                      className="form-control"
-                      placeholder="Prenom"
-                      value={this.state.Prenom}
-                      onChange={this.onChangeprenom}
-                      required
-                      />
-                </div>
-                <div className="form-group">
-                    <input type="text" 
-                      id="inputatelier"
-                      className="form-control"
-                      placeholder="Telephone"
-                      value={this.state.Telephone}
-                      onChange={this.onChangetelephone}
-                      required
-                      />
-                </div>
-                <div className="form-group">
-                    <input type="email" 
-                      id="inputatelier"
-                      className="form-control"
-                      placeholder="Email"
-                      value={this.state.Email}
-                      onChange={this.onChangeemail}
-                      required
-                      />
-                </div>
+                <center>
+                 
                 <label id="inputatelier">Ton CV</label>
-                <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br></br> <br></br>  
+                <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil1"/><br></br> <br></br>  
                 <label id="inputatelier">Ta Lettre de Motivation</label>
-                <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br></br> <br></br>  
+                <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil2"/><br></br> <br></br>  
                
                 <div className="form-group">
                     <input type="submit" id="butatelier" value="Envoyer" className="btn btn-primary"/>
@@ -119,128 +62,6 @@ export default class Inscrire extends Component {
     )
   }
 }
-
-
-
-// import React, { Component } from 'react';
-// import axios from 'axios';
-
-// export default class Inscrire extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.onChangenom = this.onChangenom.bind(this);
-//     this.onChangeprenom = this.onChangeprenom.bind(this);
-//     this.onChangeemail = this.onChangeemail.bind(this);
-//     this.onChangetelephone = this.onChangetelephone.bind(this);
-//     this.onSubmit = this.onSubmit.bind(this);
-
-//     this.state = {
-//       Nom: '',
-//       Prenom: '',
-//       Email:'',
-//       Telephone:''
-//     }
-//   }
-//   onChangenom(e) {
-//     this.setState({
-//       Nom: e.target.value
-//     });
-//   }
-//   onChangeprenom(e) {
-//     this.setState({
-//       Prenom: e.target.value
-//     })  
-//   }
-//   onChangeemail(e) {
-//     this.setState({
-//       Email: e.target.value
-//     })
-//   }
-//   onChangetelephone(e) {
-//     this.setState({
-//       Telephone: e.target.value
-//     })
-//   }
-
-//   onSubmit(e) {
-//     e.preventDefault();
-//     const obj = {
-//       Nom: this.state.Nom,
-//       Prenom: this.state.Prenom,
-//       Telephone: this.state.Telephone,
-//       Email: this.state.Email,
-      
-//     };
-//     axios.post('http://localhost:8080/particulier/'+localStorage.getItem('ti'), obj)
-//         .then(res => console.log(res.data));
-    
-//     this.setState({
-//       Nom: '',
-//       Prenom: '',
-//       Email: '',
-//       Telephone:''
-//     })
-//   }
- 
-//   render() {
-//     return (
-//         <div style={{ marginTop: 10 }}>
-           
-//             <form onSubmit={this.onSubmit}>
-//             <h3>Veuillez nous envoyer vos CV et vos LM</h3>
-//                 <center><div className="form-group">
-//                     <input 
-//                       id="inputatelier"
-//                       type="text" 
-//                       className="form-control" 
-//                       placeholder="Nom"
-//                       value={this.state.Nom}
-//                       onChange={this.onChangenom}
-//                       required
-//                       />
-//                 </div>
-//                 <div className="form-group">
-//                     <input type="text"
-//                      id="inputatelier" 
-//                       className="form-control"
-//                       placeholder="Prenom"
-//                       value={this.state.Prenom}
-//                       onChange={this.onChangeprenom}
-//                       required
-//                       />
-//                 </div>
-//                 <div className="form-group">
-//                     <input type="text" 
-//                       id="inputatelier"
-//                       className="form-control"
-//                       placeholder="Telephone"
-//                       value={this.state.Telephone}
-//                       onChange={this.onChangetelephone}
-//                       required
-//                       />
-//                 </div>
-//                 <div className="form-group">
-//                     <input type="email" 
-//                       id="inputatelier"
-//                       className="form-control"
-//                       placeholder="Email"
-//                       value={this.state.Email}
-//                       onChange={this.onChangeemail}
-//                       required
-//                       />
-//                 </div>
-//                 <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br></br> <br></br>  
-//                 <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br></br> <br></br>  
-               
-//                 <div className="form-group">
-//                     <input type="submit" id="butatelier" value="S'incrire" className="btn btn-primary"/>
-//                 </div></center>
-//             </form>
-//         </div>
-//     )
-//   }
-// }
-
 
 
 

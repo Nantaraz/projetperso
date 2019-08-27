@@ -56,7 +56,8 @@ class Navbar extends Component {
 <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" id ="aaa">
 
     <ul  >
-    <h4> <li><a href="" id = "Atelier"><i class="fa fa-dashboard"></i>Dashboard</a></li></h4><br/><br/><br/><br/><br/>
+    <h4> <li><a href="a" id = "Atelier"><i class="fa fa-dashboard"></i>Dashboard</a></li></h4><br/><br/><br/><br/><br/>
+    <li><Link to={"/profil/"+localStorage.getItem('id')}><a href="a" id = "Atelier"><i class="fa fa-tags"></i> Listes des dossiers du candidat</a></Link></li><br/><br/><br/>
         <li><Link to={"/profil/"+localStorage.getItem('id')}><a href="a" id = "Atelier"><i class="fa fa-tags"></i> Listes de mes offres d'emploi'</a></Link></li><br/><br/><br/>
         <li><Link to="/monAtelier"><a href="a" id = "Atelier"><i class="fa fa-history"></i> Ajouter une offre d'emploi'</a></Link></li><br/><br/><br/>
         {/* <li><a href="a"><i class="fa fa-lock"></i> Change Password</a></li><br/><br/> */}

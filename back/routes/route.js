@@ -5,7 +5,7 @@ var express = require('express')
 var app = express.Router();
     
 //nante    
-app.post('/register', model.creerRegister);
+    app.post('/register', model.creerRegister);
     app.get('/register', model.findAll);
     app.post('/login', model.login);
     app.post('/cuisinier/:_id',model.seulMonCuisinier);
@@ -36,6 +36,7 @@ app.post('/register', model.creerRegister);
 
 
     const particulier = require("../Controller/controller.particulier");
-    app.post('/particulier/:_id',particulier.createParticulier)
+    app.post('/candidat/:_id',particulier.Postuler);
+    app.get('/afficheListe/:_id',particulier.getDossier)
 
 module.exports = app; 

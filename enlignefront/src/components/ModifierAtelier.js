@@ -62,59 +62,59 @@ handleUploadImage(ev) {
         <center>
           <h1 id="divatelier">Modification d'une offre d'emploi</h1>
         <input type="text"
-          id = "inputatelier"
+          id = "inputtime"
           value={this.state.Titre}
           onChange={this.onChange}
-          placeholder="Titre"
+          placeholder="Intitulité du poste"
           name="Titre" /><br></br>
 
           
         <input type="text"
-          id = "inputatelier"
+          id = "inputtime"
           value={this.state.Description}
           onChange={this.onChange}
-          placeholder="Déscription"
+          placeholder="Type de contrat"
           name="Description" /><br></br>
-          <label>Date :</label>
-        <input type="date"
+         
+        <input type="text"
          id = "inputtime"
           value={this.state.Date}
           onChange={this.onChange}
-          placeholder="Date"
+          placeholder="Expérience exigée"
           name="Date" /><br></br>
-          <label>Début:</label>   
-        <input type="time"
+         
+        <input type="text"
           id = "inputtime"
           value={this.state.HoraireDebut}
           onChange={this.onChange}
-          placeholder="Horaire Début"
+          placeholder="Salaire"
           name="HoraireDebut" /><br></br>
-           <label>Durée</label>
-        <input type="time"
+      
+        <input type="text"
           id = "inputtime"
           value={this.state.Duree}
           onChange={this.onChange}
-          placeholder="Durée"
+          placeholder="Specialité de l'entreprise"
           name="Duree" /><br></br>
         <input type="Number"
-          id = "inputatelier"
+          id = "inputtime"
           value={this.state.NombrePlacesDispo}
           onChange={this.onChange}
-          placeholder="Place Dispo"
+          placeholder="type de fonction"
           name="NombrePlacesDispo" /><br></br>
-        <input type="Number"
-          id = "inputatelier"
+        <input type="text"
+          id = "inputtime"
           value={this.state.NombrePlacesRes}
           onChange={this.onChange}
-          placeholder="Place Res"
-          name="NombrePlacesRes" /><br></br>       
+          placeholder="nombre à recruter souhaité"
+          name="Place Res" /><br></br>       
         <input type="Number"
-          id = "inputatelier"
+          id = "inputtime"
           value={this.state.Prix}
           onChange={this.onChange}
-          placeholder="Prix"
+          placeholder="adresse entreprise"
           name="Prix" /><br/><br/><br/><br/><br/>   
-          <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br/>
+        <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br/>
           <button className="btn btn-outline-orange" type="submit" onClick={() => {
                         confirmAlert({
                           customUI: () => {

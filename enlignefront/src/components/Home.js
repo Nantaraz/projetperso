@@ -34,7 +34,7 @@ class Home extends React.Component {
                    (this.state.profil.length > 0) ? (this.state.profil.filter((params) => params.visibilite).map((obj) => {
                         return (
                             <div class="col-md-4 carde">
-                                <div class="card" onClick={() => {localStorage.setItem('ti',obj._id)
+                                <div class="card" onClick={() => {localStorage.setItem('travail',obj._id)
                                  console.log(obj._id)}}>
                                     
                                     
@@ -58,7 +58,7 @@ class Home extends React.Component {
                                         }}>Si vous êtes intéressé par cette offre et posssédez toutes les qualités et compétences recherchées,n'hézitez pas à nous envoyer votre CV accompagné d'une lettre de motivation en cliquant sur le boutton s'inscrire ou à l'addresse à: {obj.Prix} Ar</p>
                                         <p id='milieu'>Nous vous répondons dans le plus bref détail</p>
                                         <p id='milieu'>Pour toute formation complémentaire: tel,e-mail</p>
-                                        <Link to="inscrire"><center><button className="btn btn-success" id="butatelier">S'inscrire</button></center></Link>
+                                        <Link to={"/postuler/"+obj._id} className="btn btn-success" id="butatelier"><center>Postuler</center></Link>
                                     </div>
                                 </div>
                             </div>)

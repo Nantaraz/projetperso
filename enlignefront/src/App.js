@@ -18,6 +18,7 @@ import FooterPage from './components/FooterPage';
 //import PrivateRoute from './components/PrivateRoute'
 import Entreprise from './components/Entreprise'
 import OffreEmploi from './components/OffreEmploi'
+import dossierCandidat from './components/dossierCandidat'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -47,9 +48,10 @@ class App extends Component {
                   <Route exact path="/monAtelier" component={ Atelier } />
                   <Route exact path={"/profil/"+localStorage.getItem('id')} component={ MesAteliers } />
                   <Route exact path="/putAtelier/:_id" component={ ModifierAteliers } />
-                  <Route exact path="/inscrire" component={ Inscrire } /> 
+                  {/* <Route exact path="/inscrire" component={ Inscrire } />  */}
                   <Route exact path="/entreprise" component={ Entreprise } /> 
                   <Route exact path="/offre" component={ OffreEmploi } /> 
+                  <Route exact path="/postuler/:_id" component={ Inscrire } /> 
                   {/* <PrivateRoute exact path="/admin" component={Login}/> */}
                 </div>
               {/* <FooterPage /> */}

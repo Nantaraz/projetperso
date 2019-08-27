@@ -1,64 +1,121 @@
 const Atelier = require('../models/atelier');
 const Particulier = require('../models/particulier')
 
-exports.createParticulier = (req,res) => {
+exports.Postuler = (req,res) => {
    
+    Particulier.find().then(us=>{
+        
+        if(us.length==0){
+            id = 0
+        }
+        else{
+            id = us[us.length-1]._id+1
+        }
+     
+     let imageFile1 = req.files.photo_profil1;
+     let imageFile2 = req.files.photo_profil2;
+        console.log('inona ny ato o!'+imageFile1)
+        console.log('inona ny ato o!'+imageFile2)
+        let nomImage = id
+        
+        res.setHeader('Content-Type', 'text/plain');
 
-        Particulier.find().then(us=>{
-
-            if(us.length==0){
-                id=0
+        imageFile1.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+          if (err) {
+            return res.status(500).send(err);
+          }
+          
+        } );
+        imageFile2.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+            if (err) {
+              return res.status(500).send(err);
+            }
+            
+          } );
+  
+       Atelier.findById(req.params._id).then(use=>{
+            if(!use){
+                res.send("non")
             }
             else{
-                id=us[us.length-1]._id+1
-            }
-         }
-    
-         )
-    
-        Particulier.findOne({
-            Email: req.body.Email
-        }).then(use=>{
-            if(use) {
-                return res.status(400).json({
-                    Email: 'Email already exists'
-                });
-            }
-            else{
-       
-        Atelier.findById(req.params._id).then(use=>{
+                Particulier.findOne(
+                    //    {
+                    //     matricule: req.body.matricule
+                    // }
+                    ).then(user=>{
+                        // if(user) {
+                            
+                        //     return res.status(400).json({
+                        //         matricule: 'déja fait le rendez-vous'
+                        //     });
+                        // }
+                        // else{   
+                  
                 const particulier = new Particulier({
                     _id:id,
-                    Nom: req.body.Nom,
-                    Prenom: req.body.Prenom,
-                    Telephone:req.body.Telephone,
-                    Email: req.body.Email       
+                    id2:use._id,
+                    id3:use.id2,
+                    //aaaa:req.body.aaaa,
+                    photo_profil1:nomImage +'.jpg',
+                    photo_profil2:nomImage +'.jpg'
+                    
                     
                 });
-                Atelier.findByIdAndUpdate(use._id, {
-                    
-                    _id:use.id,
+                    Atelier.findByIdAndUpdate(use._id, { _id:use.id,
                     id2:use.id2,
-                    Titre: use.Titre,
-                    Description: use.Description,
-                    Date: use.Date,
-                    HoraireDebut: use.HoraireDebut,
-                    Duree:use.Duree,
-                    NombrePlacesDispo: use.NombrePlacesDispo-1,
-                    NombrePlacesRes: use.NombrePlacesRes+1,
-                    Prix:use.Prix,
-                    photo_profil: use.photo_profil
-                    // photo_profil: use.nomImage +'.jpg',
+                    Titre: req.body.Titre, 
+                    Description: req.body.Description,
+                    Date: req.body.Date,
+                    HoraireDebut: req.body.HoraireDebut , 
+                    Duree: req.body.Duree,
+                    NombrePlacesDispo: req.body.NombrePlacesDispo,
+                    NombrePlacesRes: req.body.NombrePlacesRes,
+                    Prix: req.body.Prix,
+                    visibilite:true,
+                    photo_profil:nomImage +'.jpg'
                 
-                }).then(upd=>console.log(upd)
+                }).then(upd=>console.log("apdate"+upd)
                 )
                                 particulier
                                     .save()
                                     .then(user => {
                                         res.json(user)
                                     }); 
-                                });  
-                            }       
+
+                                    //
+                                // }
+                                }); 
+                                
+                               
+                 }
+                                });         
                             
+                            
+
                         }); 
+} 
+
+
+exports.getDossier=  (req, res) => {
+       
+    Particulier.find().then(user=>{
+        const tab=[]
+        for(let i=0;i<user.length;i++){
+            if(user[i].id2==req.params._id){
+              tab.push(user[i])
+              console.log(tab);
+              
+            }
+           
+        }
+        if(tab.length>0){
+            res.send(tab)   
+        }
+        else{
+            res.send([])
+         } 
+        
+     
+    })             
 }
+

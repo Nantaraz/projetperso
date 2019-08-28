@@ -1,5 +1,6 @@
 const Atelier = require('../models/atelier');
-const Particulier = require('../models/particulier')
+const Particulier = require('../models/particulier');
+const fs = require('fs');
 
 exports.Postuler = (req,res) => {
    
@@ -20,13 +21,13 @@ exports.Postuler = (req,res) => {
         
         res.setHeader('Content-Type', 'text/plain');
 
-        imageFile1.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+        imageFile1.mv(`${__dirname}/public/${nomImage }.pdf`, function(err) {
           if (err) {
             return res.status(500).send(err);
           }
           
         } );
-        imageFile2.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+        imageFile2.mv(`${__dirname}/public/${nomImage }.pdf`, function(err) {
             if (err) {
               return res.status(500).send(err);
             }
@@ -54,10 +55,13 @@ exports.Postuler = (req,res) => {
                 const particulier = new Particulier({
                     _id:id,
                     id2:use._id,
-                    id3:use.id2,
+                    Nom:req.body.Nom,
+                    Prenom:req.body.Prenom,
+                    Contact:req.body.Contact,
+                    // id3:use.id2,
                     //aaaa:req.body.aaaa,
-                    photo_profil1:nomImage +'.jpg',
-                    photo_profil2:nomImage +'.jpg'
+                    photo_profil1:nomImage +'.pdf',
+                    photo_profil2:nomImage +'.pdf'
                     
                     
                 });
@@ -72,7 +76,7 @@ exports.Postuler = (req,res) => {
                     NombrePlacesRes: req.body.NombrePlacesRes,
                     Prix: req.body.Prix,
                     visibilite:true,
-                    photo_profil:nomImage +'.jpg'
+                    photo_profil:nomImage +'.pdf'
                 
                 }).then(upd=>console.log("apdate"+upd)
                 )
@@ -117,5 +121,23 @@ exports.getDossier=  (req, res) => {
         
      
     })             
+}
+exports.lireImage1 =(req, res) =>{
+    try {
+        let picture = fs.readFileSync('./Controller/public/'+req.params.photo_profil1)
+        res.write(picture)
+        res.end()
+    } catch (e) {
+        console.log("erreur be miitsy", e.stack);
+    }
+}
+exports.lireImage2 =(req, res) =>{
+    try {
+        let picture = fs.readFileSync('./Controller/public/'+req.params.photo_profil2)
+        res.write(picture)
+        res.end()
+    } catch (e) {
+        console.log("erreur be miitsy", e.stack);
+    }
 }
 

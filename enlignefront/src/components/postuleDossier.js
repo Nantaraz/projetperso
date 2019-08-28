@@ -7,6 +7,9 @@ export default class Inscrire extends Component {
       super(props);
   
       this.state = {
+        Nom:'',
+        Prenom:'',
+        Contact:'',
         photo_profil1:'',
         photo_profil2:''
   
@@ -24,6 +27,9 @@ export default class Inscrire extends Component {
       const data = new FormData();
       data.append('photo_profil1', this.uploadInput.files[0]);
       data.append('photo_profil2', this.uploadInput.files[0]);
+      data.append('Nom', this.state.Nom);
+      data.append('Prenom', this.state.Prenom);
+      data.append('Contact', this.state.Contact);
       fetch('http://localhost:8080/candidat/'+localStorage.getItem('travail'), {
         method: 'POST',
         body: data,
@@ -46,7 +52,25 @@ export default class Inscrire extends Component {
         <div style={{ marginTop: 10 }}>
            
             <form onSubmit={this.handleUploadImage}>
-            <h3>Veuillez nous envoyer vos CV et vos LM</h3>
+            <h3>Veuillez nous envoyer votre CV et votre LM</h3>
+            <center><input type="text"
+              id = "inputtime"
+              value={this.state.Nom}
+              onChange={this.onChange}
+              placeholder="Votre nom"
+              name="Nom" /></center><br></br>
+              <center><input type="text"
+              id = "inputtime"
+              value={this.state.Prenom}
+              onChange={this.onChange}
+              placeholder="Votre prenom"
+              name="Prenom" /></center><br></br>
+               <center><input type="number"
+              id = "inputtime"
+              value={this.state.Contact}
+              onChange={this.onChange}
+              placeholder="Votre contact"
+              name="Contact" /></center><br></br>
                 <center>
                  
                 <label id="inputatelier">Ton CV</label>

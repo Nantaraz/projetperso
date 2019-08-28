@@ -13,12 +13,12 @@ import Home from './components/Home';
 import Atelier from './components/Atelier';
 import MesAteliers from './components/Mesateliers';
 import ModifierAteliers from './components/ModifierAtelier';
-import Inscrire from './components/inscrire';
+import Inscrire from './components/postuleDossier';
 import FooterPage from './components/FooterPage';
 //import PrivateRoute from './components/PrivateRoute'
 import Entreprise from './components/Entreprise'
 import OffreEmploi from './components/OffreEmploi'
-import dossierCandidat from './components/dossierCandidat'
+import DossierCandidat from './components/dossierCandidat'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -52,6 +52,7 @@ class App extends Component {
                   <Route exact path="/entreprise" component={ Entreprise } /> 
                   <Route exact path="/offre" component={ OffreEmploi } /> 
                   <Route exact path="/postuler/:_id" component={ Inscrire } /> 
+                  <Route exact path="/afficheListe/:_id" component={ DossierCandidat } /> 
                   {/* <PrivateRoute exact path="/admin" component={Login}/> */}
                 </div>
               {/* <FooterPage /> */}

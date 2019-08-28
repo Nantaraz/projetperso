@@ -10,11 +10,23 @@ const commentaireSchema = mongoose.Schema({
   type:Number,
   required:true
 },
-  id3:{
-  type:Number,
-  required:true
-}
-,
+//   id3:{
+//   type:Number,
+//   required:true
+// }
+//,
+  Nom:{
+    type:String,
+    required:true
+  },
+  Prenom:{
+    type:String,
+    required:true
+  },
+    Contact:{
+    type:Number,
+    required:true
+  },
     photo_profil1 : {
     type: String,
     required: true

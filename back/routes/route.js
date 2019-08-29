@@ -38,6 +38,8 @@ var app = express.Router();
     const particulier = require("../Controller/controller.particulier");
     app.post('/candidat/:_id',particulier.Postuler);
     app.get('/afficheListe/:_id',particulier.getDossier)
+    // app.get('/affiche/:_id',particulier.getDossier)
+    app.get('/afficheSeul/:_id',particulier.getInfo)
     app.get('/afficheListe1/:photo_profil1', particulier.lireImage1);
     app.get('/afficheListe2/:photo_profil2', particulier.lireImage2);
 

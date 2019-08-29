@@ -57,6 +57,21 @@ handleUploadImage(ev) {
   // });
 }
 
+
+// componentDidMount() {
+//   axios.get('http://localhost:8080/profil').then(res=>{
+//     this.setState({
+//         Titre: res.Titre,
+//         Description:res.Description,
+//         Date:res.Date,
+//         HoraireDebut:res.HoraireDebut,
+//         Duree:res.Duree,
+//         NombrePlacesDispo:res.NombrePlacesDispo,
+//         NombrePlacesRes:res.NombrePlacesRes,
+//         Prix:res.Prix,
+//     })
+//   })
+
   render() {
     return (
         <form onSubmit={this.handleUploadImage}>

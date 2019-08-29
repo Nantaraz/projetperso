@@ -77,38 +77,41 @@ class Navbar extends Component {
       const guestLinks = (
 
         <MDBNavbar  color="default-color" dark expand="md" id="eto">
-            <img src={Logo} height="40px" alt='aaa'/><MDBNavLink to="/">JOB STORE</MDBNavLink>
+            <img src={Logo} height="40px" alt='aaa'/>
+            <MDBNavLink to="/">Offres d'emploi</MDBNavLink>
+            <MDBNavLink to="/entreprise">Entreprises</MDBNavLink>
 
-   <MDBNavbarToggler onClick={this.toggleCollapse} />
-   <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
-     <MDBNavbarNav left>
-     <MDBNavItem>
-        <MDBNavLink to="/offre">Offres d'emploi</MDBNavLink>
-    </MDBNavItem>
-    <MDBNavItem>
-        <MDBNavLink to="/entreprise">Entreprises</MDBNavLink>
-    </MDBNavItem>
-     </MDBNavbarNav>
-     <MDBNavbarNav right>
+                <MDBNavbarToggler onClick={this.toggleCollapse} />
+                    <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
+                        {/* <MDBNavbarNav left> */}
+     {/* <MDBNavItem>
+        <MDBNavLink to="/offre"></MDBNavLink>
+    </MDBNavItem> */}
+                            {/* <MDBNavItem >
+                                <MDBNavLink to="/entreprise">Entreprises</MDBNavLink>
+                            </MDBNavItem> */}
+                        {/* </MDBNavbarNav> */}
+                        <MDBNavbarNav right>
             {/* <MDBNavLink className="waves-effect waves-light" to="/login">
               Connecter
             </MDBNavLink> */}
 
-            <ul class="nav navbar-nav navbar-right">
+            {/* <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="a"><i class="fa fa-user-circle"></i> Espace candidat </a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
-                    <li><a href="register"><i class="fa fa-sign-out" ></i> Créer un compte </a></li>
+                    
                     <li><a href="login" to="/login" onClick={this.onLogout.bind(this)}><i class="fa fa-sign-out" ></i> Se connecter</a></li>
                     </ul>
                 </li>
               
-            </ul>
+            </ul> */}
 
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a class="dropdown-toggle" role="button" data-toggle="dropdown" href="a"><i class="fa fa-user-circle"></i> Espace recruteur </a>
                     <ul id="g-account-menu" class="dropdown-menu" role="menu">
+                    <li><a href="register"><i class="fa fa-sign-out" ></i> Créer un compte </a></li>
                     <li><a href="a" to="/login" onClick={this.onLogout.bind(this)}><i class="fa fa-sign-out" ></i> Se connecter</a></li>
                     </ul>
                 </li>

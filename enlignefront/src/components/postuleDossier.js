@@ -25,8 +25,8 @@ export default class Inscrire extends Component {
     handleUploadImage(ev) {
       ev.preventDefault();
       const data = new FormData();
-      data.append('photo_profil1', this.uploadInput.files[0]);
-      data.append('photo_profil2', this.uploadInput.files[0]);
+      data.append('photo_profil1', this.uploadInput1.files[0]);
+      data.append('photo_profil2', this.uploadInput2.files[0]);
       data.append('Nom', this.state.Nom);
       data.append('Prenom', this.state.Prenom);
       data.append('Contact', this.state.Contact);
@@ -74,12 +74,12 @@ export default class Inscrire extends Component {
                 <center>
                  
                 <label id="inputatelier">Ton CV</label>
-                <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil1"/><br></br> <br></br>  
+                <input id="jtext" ref={(ref1) => { this.uploadInput1 = ref1; }} type="file" name="photo_profil1"/><br></br> <br></br>  
                 <label id="inputatelier">Ta Lettre de Motivation</label>
-                <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil2"/><br></br> <br></br>  
+                <input id="jtext" ref={(ref2) => { this.uploadInput2 = ref2; }} type="file" name="photo_profil2"/><br></br> <br></br>  
                
                 <div className="form-group">
-                    <input type="submit" id="butatelier" value="Envoyer" className="btn btn-primary"/>
+                    <input type="submit" id="butatpostule" value="Envoyer" className="btn btn-primary"/>
                 </div></center>
             </form>
         </div>

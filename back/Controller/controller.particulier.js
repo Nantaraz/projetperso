@@ -17,19 +17,22 @@ exports.Postuler = (req,res) => {
      let imageFile2 = req.files.photo_profil2;
         console.log('inona ny ato o!'+imageFile1)
         console.log('inona ny ato o!'+imageFile2)
-        let nomImage = id
-        // let nomImage1 = id + 1
-        // let nomImage2 = id + 2
+        // let nomImage = id
+        let nomImage1 = id + 1
+        let nomImage2 = id + 2
         
         res.setHeader('Content-Type', 'text/plain');
 
-        imageFile1.mv(`${__dirname}/public/${nomImage }.pdf`, function(err) {
+        imageFile1.mv(`${__dirname}/public/${nomImage1 }.pdf`, function(err) {
           if (err) {
             return res.status(500).send(err);
           }
           
         } );
-        imageFile2.mv(`${__dirname}/public/${nomImage }.pdf`, function(err) {
+
+        res.setHeader('Content-Type', 'text/plain');
+        
+        imageFile2.mv(`${__dirname}/public/${nomImage2 }.pdf`, function(err) {
             if (err) {
               return res.status(500).send(err);
             }
@@ -54,8 +57,8 @@ exports.Postuler = (req,res) => {
                     Contact:req.body.Contact,
                     // id3:use.id2,
                     //aaaa:req.body.aaaa,
-                    photo_profil1:nomImage +'.pdf',
-                    photo_profil2:nomImage +'.pdf'
+                    photo_profil1:nomImage1 +'.pdf',
+                    photo_profil2:nomImage2 +'.pdf'
                     
                     
                 });
@@ -71,7 +74,7 @@ exports.Postuler = (req,res) => {
                         NombrePlacesRes: use.NombrePlacesRes,
                         Prix: use.Prix,
                         visibilite:true,
-                        photo_profil:use.photo_profil
+                        //photo_profil:use.photo_profil
                     // photo_profil:nomImage +'.pdf'
                 
                 }).then(upd=>console.log("apdate"+upd)

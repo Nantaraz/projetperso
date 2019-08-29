@@ -76,8 +76,6 @@ class Navbar extends Component {
         )
       const guestLinks = (
 
-        
-        
         <MDBNavbar  color="default-color" dark expand="md" id="eto">
             <img src={Logo} height="40px" alt='aaa'/><MDBNavLink to="/">JOB STORE</MDBNavLink>
 
@@ -89,6 +87,9 @@ class Navbar extends Component {
     </MDBNavItem>
     <MDBNavItem>
         <MDBNavLink to="/entreprise">Entreprises</MDBNavLink>
+    </MDBNavItem>
+    <MDBNavItem>
+        <MDBNavLink to="/reader">reader</MDBNavLink>
     </MDBNavItem>
      </MDBNavbarNav>
      <MDBNavbarNav right>
@@ -120,9 +121,6 @@ class Navbar extends Component {
      </MDBNavbarNav>
    </MDBCollapse>
  </MDBNavbar>
-
-
-
 
       )
         return(

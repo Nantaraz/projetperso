@@ -130,63 +130,7 @@ exports.login = (req, res) => {
         });
 };
 
-// exports.seulMonCuisinier = (req, res) => {
-//     Cuisinier.findById(req.params._id).then(user=>{
-        
-//         if(!user){
-//             res.send("intouvable")
-//         }
-//         else{
-//             Atelier.find().then(use=>{
-//                 // const { errors, isValid } = validateRegisterInput2(req.body);
-//                 var id;
-//                 if(use.length==0){
-//                     id=0
-//                 }
-//                 else{
-//                     id=use[use.length-1]._id+1
-//                 }
-//                 // if(!isValid) {
-//                 //     return res.status(400).json(errors);
-//                 // }
-//                 let imageFile1 = req.files.photo_profil;
-//                 let nomImage = id
-//                 console.log(req.files);
-//                 res.setHeader('Content-Type', 'text/plain');
-                
-//                   imageFile1.mv(`${__dirname}/public/${nomImage}.jpg`, function(err) {
-//                     if (err) {
-//                       return res.status(500).send("err");
-//                     }
-//                                   })
-                  
-//                         const atelier = new Atelier({
-//                             _id:id,
-//                             id2:user._id,
-//                             Titre: req.body.Titre,
-//                             Description: req.body.Description,
-//                             Date: req.body.Date,
-//                             HoraireDebut: req.body.HoraireDebut,
-//                             Duree: req.body.Duree,
-//                             NombrePlacesDispo:req.body.NombrePlacesDispo,
-//                             NombrePlacesRes:req.body.NombrePlacesRes,
-//                             Prix:req.body.Prix,
-//                             photo_profil:nomImage+".jpg",
-//                             visibilite:true
-                            
-//                         });   
-//                                         atelier
-//                                             .save()
-//                                             .then(user => {
-//                                                 res.json(user)
-//                                             }).catch(use=>console.log("user")
-//                                             ) 
-                                    
-//                                 });   
-//         }
-     
-//     })
-// }
+
 
 
 exports.seulMonCuisinier = (req, res) => {

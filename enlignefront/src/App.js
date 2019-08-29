@@ -19,6 +19,7 @@ import FooterPage from './components/FooterPage';
 import Entreprise from './components/Entreprise'
 import OffreEmploi from './components/OffreEmploi'
 import DossierCandidat from './components/dossierCandidat'
+import MyPdfViewer from './components/readerpdf'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -51,8 +52,9 @@ class App extends Component {
                   {/* <Route exact path="/inscrire" component={ Inscrire } />  */}
                   <Route exact path="/entreprise" component={ Entreprise } /> 
                   <Route exact path="/offre" component={ OffreEmploi } /> 
-                  <Route exact path="/postuler/:_id" component={ Inscrire } /> 
+                  <Route exact path="/postuler/:id2" component={ Inscrire } /> 
                   <Route exact path="/afficheListe/:_id" component={ DossierCandidat } /> 
+                  <Route exact path="/reader" component={ MyPdfViewer } /> 
                   {/* <PrivateRoute exact path="/admin" component={Login}/> */}
                 </div>
               {/* <FooterPage /> */}

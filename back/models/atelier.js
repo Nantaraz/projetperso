@@ -30,15 +30,15 @@ const UserSchema = mongoose.Schema({
         required: true
     },
     NombrePlacesDispo:{
-        type: Number,
+        type: String,
         required:true
     },
     NombrePlacesRes:{
-        type: Number,
+        type: String,
         required:true
     },
     Prix:{
-        type: Number,
+        type: String,
         required:true
     },
     photo_profil:String,

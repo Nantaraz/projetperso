@@ -49,16 +49,16 @@ class Home extends React.Component {
                                         <p class="card-text" id='milieu1'>Type de contrat: {obj.Description}</p>
                                         <p class="card-text" id='milieu1'>Expérience exigée: {obj.Date}</p>
                                         <p class="card-text" id='milieu1'>Salaire: {obj.HoraireDebut} Ar</p>
-                                        <p class="card-text" id='milieu'>Notre société spécialisée dans {obj.Duree} recherche un(e) {obj.NombrePlacesDispo} pour venir renforcer mes équipes!</p>
+                                        <p class="card-text" id='milieu1'>Notre société spécialisée dans {obj.Duree} recherche un(e) {obj.NombrePlacesDispo} pour venir renforcer mes équipes!</p>
                                         {/* <p class="card-text" id='milieu'>Place dispo: {obj.NombrePlacesDispo}</p> */}
-                                        <p class="card-text" id='milieu'>Pour occuper ce poste,nous aimerons recruter un proffesionel {obj.NombrePlacesRes} titulaire d'un (diplome souhaité) et possedant les compétences suivantes:</p>
-                                        <p class="card-text" id='milieu' onClick={()=>{
+                                        <p class="card-text" id='milieu1'>Pour occuper ce poste,nous aimerons recruter un proffesionel {obj.NombrePlacesRes} titulaire d'un (diplome souhaité) et possedant les compétences suivantes:</p>
+                                        <p class="card-text" id='milieu1' onClick={()=>{
                                             console.log(obj._id);
                                             
                                         }}>Si vous êtes intéressé par cette offre et posssédez toutes les qualités et compétences recherchées,n'hézitez pas à nous envoyer votre CV accompagné d'une lettre de motivation en cliquant sur le boutton s'inscrire ou à l'addresse à: {obj.Prix} Ar</p>
-                                        <p id='milieu'>Nous vous répondons dans le plus bref détail</p>
-                                        <p id='milieu'>Pour toute formation complémentaire: tel,e-mail</p>
-                                        <Link to={"/postuler/"+obj.id2} className="btn btn-success" id="butatelier"><center>Postuler</center></Link>
+                                        <p id='milieu1'>Nous vous répondons dans le plus bref détail</p>
+                                        <p id='milieu1'>Pour toute formation complémentaire: tel,e-mail</p>
+                                        <Link to={"/postuler/"+obj.id2} id="butatelier"><center>Postuler</center></Link>
                                     </div>
                                 </div>
                             </div>)

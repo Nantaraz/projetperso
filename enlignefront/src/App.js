@@ -58,7 +58,7 @@ class App extends Component {
                   <Route exact path="/afficheSeul/:_id" component={ voirDetail } /> 
                   {/* <PrivateRoute exact path="/admin" component={Login}/> */}
                 </div>
-              {/* <FooterPage /> */}
+               <FooterPage /> 
             </div>
           </Router>
         </Provider>

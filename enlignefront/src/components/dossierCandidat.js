@@ -36,7 +36,7 @@ export default class DossierCandidat extends Component {
                                         <p class="card-title" id="titre">Prenom: {obj.Prenom}</p>
                                         <p class="card-title" id="titre">Contact rapide: {obj.Contact}</p>
                                         <p id="titre">Cliquer voir detail ci-déssous pour voir CV et LM</p>
-                                        <center><Link to={"/afficheSeul/"+obj._id} className="btn btn-primary" id='milieu'>Voir detail</Link></center>
+                                        <center><Link to={"/afficheSeul/"+obj._id} id='mil'>Voir detail</Link></center>
                                         {/* <center><p class="card-text" id='milieu'>CV</p></center>
                                         <PDF width="65%" height="300px" file={'http://localhost:8080/afficheListe1/' + obj.photo_profil1}/>
                                         <center><p class="card-text" id='milieu'>LM</p></center>

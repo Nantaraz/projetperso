@@ -19,6 +19,7 @@ import FooterPage from './components/FooterPage';
 import Entreprise from './components/Entreprise'
 import OffreEmploi from './components/OffreEmploi'
 import DossierCandidat from './components/dossierCandidat'
+import voirDetail from './components/voirDetail'
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -54,6 +55,7 @@ class App extends Component {
                   <Route exact path="/offre" component={ OffreEmploi } /> 
                   <Route exact path="/postuler/:id2" component={ Inscrire } /> 
                   <Route exact path="/afficheListe/:_id" component={ DossierCandidat } /> 
+                  <Route exact path="/afficheSeul/:_id" component={ voirDetail } /> 
                   {/* <PrivateRoute exact path="/admin" component={Login}/> */}
                 </div>
               {/* <FooterPage /> */}
@@ -65,21 +67,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-
-
-// componentDidMount() {
-//   axios.get('http://localhost:8080/profil').then(res=>{
-//     this.setState({
-//         Titre: res.Titre,
-//         Description:res.Description,
-//         Date:res.Date,
-//         HoraireDebut:res.HoraireDebut,
-//         Duree:res.Duree,
-//         NombrePlacesDispo:res.NombrePlacesDispo,
-//         NombrePlacesRes:res.NombrePlacesRes,
-//         Prix:res.Prix,
-//     })
-//   })

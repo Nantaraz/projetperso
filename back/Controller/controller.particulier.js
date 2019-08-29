@@ -136,4 +136,26 @@ exports.lireImage2 =(req, res) =>{
         console.log("erreur be miitsy", e.stack);
     }
 }
+exports.getInfo=  (req, res) => {
+       
+    Particulier.find().then(user=>{
+        const tab=[]
+        for(let i=0;i<user.length;i++){
+            if(user[i]._id==req.params._id){
+              tab.push(user[i])
+              console.log(tab);
+              
+            }
+           
+        }
+        if(tab.length>0){
+            res.send(tab)   
+        }
+        else{
+            res.send([])
+         } 
+        
+     
+    })             
+}
 

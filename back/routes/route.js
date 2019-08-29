@@ -25,7 +25,7 @@ var app = express.Router();
 
 
     app.get('/profil/:profilId', pers.findOne);
-    app.get('/user/:photo_profil', pers.lireImage);
+    // app.get('/user/:photo_profil', pers.lireImage);
 
     //chekbox
     app.get('/ateliermasquer/:_id',pers.atelierMasquer);

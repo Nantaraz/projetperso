@@ -10,11 +10,7 @@ const commentaireSchema = mongoose.Schema({
   type:Number,
   required:true
 },
-//   id3:{
-//   type:Number,
-//   required:true
-// }
-//,
+
   Nom:{
     type:String,
     required:true
@@ -40,8 +36,5 @@ const commentaireSchema = mongoose.Schema({
 }, {
   timestamps: true
 });
-
-
-
 
   module.exports=mongoose.model('Particulier',commentaireSchema)

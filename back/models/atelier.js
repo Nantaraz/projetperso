@@ -41,7 +41,7 @@ const UserSchema = mongoose.Schema({
         type: String,
         required:true
     },
-    photo_profil:String,
+    // photo_profil:String,
     visibilite:Boolean
 },
 {

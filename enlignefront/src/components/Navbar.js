@@ -88,9 +88,6 @@ class Navbar extends Component {
     <MDBNavItem>
         <MDBNavLink to="/entreprise">Entreprises</MDBNavLink>
     </MDBNavItem>
-    <MDBNavItem>
-        <MDBNavLink to="/reader">reader</MDBNavLink>
-    </MDBNavItem>
      </MDBNavbarNav>
      <MDBNavbarNav right>
             {/* <MDBNavLink className="waves-effect waves-light" to="/login">

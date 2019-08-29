@@ -23,18 +23,18 @@ exports.create = (req, res) => {
             idautom = parseInt(user[user.length - 1]._id) + 1
         }
         
-        // //images
-        let imageFile = req.files.photo_profil;
-        //console.log('inona ny ato o!'+imageFile)
-        let nomImage = idautom
-        res.setHeader('Content-Type', 'text/plain');
+        // // //images
+        // let imageFile = req.files.photo_profil;
+        // //console.log('inona ny ato o!'+imageFile)
+        // let nomImage = idautom
+        // res.setHeader('Content-Type', 'text/plain');
 
-        imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
-          if (err) {
-            return res.status(500).send(err);
-          }
+        // imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+        //   if (err) {
+        //     return res.status(500).send(err);
+        //   }
           
-        });
+        // });
         
     const profil = new Atelier({   
              
@@ -48,7 +48,7 @@ exports.create = (req, res) => {
         NombrePlacesRes: req.body.NombrePlacesRes,
         Prix: req.body.Prix,
         visibilite:true,
-        photo_profil:nomImage +'.jpg'
+        // photo_profil:nomImage +'.jpg'
     });
 
 
@@ -77,15 +77,15 @@ exports.findAll = (req, res) => {
     });
 };
 
-exports.lireImage =(req, res) =>{
-    try {
-        let picture = fs.readFileSync('./Controller/public/'+req.params.photo_profil)
-        res.write(picture)
-        res.end()
-    } catch (e) {
-        console.log("erreur be miitsy", e.stack);
-    }
-}
+// exports.lireImage =(req, res) =>{
+//     try {
+//         let picture = fs.readFileSync('./Controller/public/'+req.params.photo_profil)
+//         res.write(picture)
+//         res.end()
+//     } catch (e) {
+//         console.log("erreur be miitsy", e.stack);
+//     }
+// }
 
 // Find a single profil with a profilId
 exports.findOne = (req, res) => {
@@ -133,17 +133,17 @@ exports.imgAtelier = (req, res) => {
          } 
         })
 
-    Atelier.find().then(produit=>{
-        for(let i=0;i<produit.length;i++){
-          router.get("/public/"+produit[i].photo_profil,(req,res)=>{
-              var fs = require("fs")
-             console.log( "./Controller/public/"+produit[i].photo_profil);
+    // Atelier.find().then(produit=>{
+    //     for(let i=0;i<produit.length;i++){
+    //       router.get("/public/"+produit[i].photo_profil,(req,res)=>{
+    //           var fs = require("fs")
+    //          console.log( "./Controller/public/"+produit[i].photo_profil);
              
-             var image= fs.readFileSync("./Controller/public/"+produit[i].photo_profil)
-    res.send(image)
-          })
-        }
-    })
+    //          var image= fs.readFileSync("./Controller/public/"+produit[i].photo_profil)
+    // res.send(image)
+    //       })
+    //     }
+    // })
           
 }
 
@@ -168,14 +168,14 @@ exports.monAtelier = (req, res) => {
                 // if(!isValid) {
                 //     return res.status(400).json(errors);
                 // }
-                let imageFile1 = req.files.photo_profil;
-                console.log(req.files);
+                // let imageFile1 = req.files.photo_profil;
+                // console.log(req.files);
                 
-                  imageFile1.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
-                    if (err) {
-                      return res.status(500).send("err");
-                    }
-                                  })
+                //   imageFile1.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+                //     if (err) {
+                //       return res.status(500).send("err");
+                //     }
+                //                   })
                   
                         const atelier = new Atelier({
                             _id:id,
@@ -187,7 +187,7 @@ exports.monAtelier = (req, res) => {
                             NombrePlacesDispo:req.body.NombrePlacesDispo,
                             NombrePlacesRes:req.body.NombrePlacesRes,
                             Prix:req.body.Prix,
-                            photo_profil:nomImage+".jpg",
+                            // photo_profil:nomImage+".jpg",
                             visibilite:true
                            
                             
@@ -240,18 +240,30 @@ exports.update = (req, res) => {
         });
     }
     console.log('ity n params'+req.params._id)
-    let imageFile = req.files.photo_profil;
-        //console.log('inona ny ato o!'+imageFile)
-        let nomImage = req.params._id
-        res.setHeader('Content-Type', 'text/plain');
+    // let imageFile = req.files.photo_profil;
+    //     //console.log('inona ny ato o!'+imageFile)
+    //     let nomImage = req.params._id
+    //     res.setHeader('Content-Type', 'text/plain');
 
-        imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
-          if (err) {
-            return res.status(500).send(err);
-          }
-        });
-        console.log('tonga eto v nw')
+    //     imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+    //       if (err) {
+    //         return res.status(500).send(err);
+    //       }
+    //     });
+        //console.log('tonga eto v nw')
     // Find and update eleve with the request body
+    
+    // Atelier.findById(req.params._id).then(use=>{
+    //     Titre: use.Titre, 
+    //     Description: use.Description,
+    //     Date: use.Date,
+    //     HoraireDebut: use.HoraireDebut , 
+    //     Duree: use.Duree,
+    //     NombrePlacesDispo: use.NombrePlacesDispo,
+    //     NombrePlacesRes: use.NombrePlacesRes,
+    //     Prix: use.Prix
+    // })
+       
     Atelier.findByIdAndUpdate(req.params._id, {
         Titre: req.body.Titre, 
         Description: req.body.Description,
@@ -281,4 +293,5 @@ exports.update = (req, res) => {
             message: "Something wrong updating note with id " + req.params._id
         });
     });
+
 };

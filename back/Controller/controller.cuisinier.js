@@ -150,21 +150,21 @@ exports.seulMonCuisinier = (req, res) => {
                 else{
                     idautom=use[use.length-1]._id+1
                 }
-                let imageFile = req.files.photo_profil;
-                //console.log('inona ny ato o!'+imageFile)
-                let nomImage = idautom
-                res.setHeader('Content-Type', 'text/plain');
+                // let imageFile = req.files.photo_profil;
+                // //console.log('inona ny ato o!'+imageFile)
+                // let nomImage = idautom
+                // res.setHeader('Content-Type', 'text/plain');
         
-                imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
-                  if (err) {
-                    return res.status(500).send(err);
-                  }
+                // imageFile.mv(`${__dirname}/public/${nomImage }.jpg`, function(err) {
+                //   if (err) {
+                //     return res.status(500).send(err);
+                //   }
                   
                   
-                  //res.send({file:`public/${nomImage }.jpg`});
+                //   //res.send({file:`public/${nomImage }.jpg`});
                   
                   
-                });
+                // });
             
                   
                         const atelier = new Atelier({
@@ -178,7 +178,7 @@ exports.seulMonCuisinier = (req, res) => {
                             NombrePlacesDispo:req.body.NombrePlacesDispo,
                             NombrePlacesRes:req.body.NombrePlacesRes,
                             Prix:req.body.Prix,
-                            photo_profil:'' + nomImage +'.jpg',
+                            // photo_profil:'' + nomImage +'.jpg',
                             visibilite:true
                             
                         });

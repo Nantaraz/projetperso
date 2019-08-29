@@ -17,7 +17,7 @@ class Home extends React.Component {
           NombrePlacesDispo:'',
           NombrePlacesRes:'',
           Prix:'',
-          photo_profil:''
+          // photo_profil:''
     
         };
         this.onChange = this.onChange.bind(this)
@@ -31,7 +31,7 @@ class Home extends React.Component {
       handleUploadImage(ev) {
         ev.preventDefault();
         const data = new FormData();
-        data.append('photo_profil', this.uploadInput.files[0]);
+        // data.append('photo_profil', this.uploadInput.files[0]);
         data.append('Titre',this.state.Titre);
         data.append('Description',this.state.Description);
         data.append('Date',this.state.Date)
@@ -43,16 +43,17 @@ class Home extends React.Component {
         fetch('http://localhost:8080/cuisinier/'+localStorage.getItem('id'), {
           method: 'POST',
           body: data,
-        }).then((response) => {
-          response.json().then((body) => {
-            this.setState({ photo_profil: `http://localhost:8080/cuisinier/${body.photo_profil}`});
-            console.log('ity ilay body.fil',body.photo_profil);
-            
-          });
-        }).catch(err=>{
-          console.log(err);
-          
         })
+        // .then((response) => {
+        //   response.json().then((body) => {
+        //     this.setState({ photo_profil: `http://localhost:8080/cuisinier/${body.photo_profil}`});
+        //     console.log('ity ilay body.fil',body.photo_profil);
+            
+        //   });
+        // }).catch(err=>{
+        //   console.log(err);
+          
+        // })
       }
     
       render() {
@@ -109,7 +110,7 @@ class Home extends React.Component {
               onChange={this.onChange}
               placeholder="adresse entreprise"
               name="Prix" /><br></br><br></br>    
-              <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br></br> <br></br>  
+              {/* <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br></br> <br></br>   */}
               {/* <button type="submit" id="butatelier">Ajouter</button> */}
               <button className="btn btn-outline-orange" type="submit" onClick={() => {
                         confirmAlert({

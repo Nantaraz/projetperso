@@ -15,7 +15,7 @@ class ModifierAteliers extends React.Component {
         NombrePlacesDispo:'',
         NombrePlacesRes:'',
         Prix:'',
-        photo_profil:''
+        // photo_profil:''
   
     }
     this.onChange = this.onChange.bind(this)
@@ -31,7 +31,7 @@ handleUploadImage(ev) {
   ev.preventDefault();
 
   const data = new FormData();
-  data.append('photo_profil', this.uploadInput.files[0]);
+  // data.append('photo_profil', this.uploadInput.files[0]);
   data.append('Titre',this.state.Titre);
   data.append('Description',this.state.Description);
   data.append('Date',this.state.Date)
@@ -44,16 +44,17 @@ handleUploadImage(ev) {
   fetch('http://localhost:8080/putAtelier/'+this.props.match.params._id, {
     method: 'PUT',
     body: data,
-  }).then((response) => {
-    //   console.log('ity n response ' + response);
-      console.log('this.props.match.params.id '+this.props.match.params._id);
+  })
+  // .then((response) => {
+  //   //   console.log('ity n response ' + response);
+  //     console.log('this.props.match.params.id '+this.props.match.params._id);
     
-    response.json().then((body) => {
-      this.setState({ photo_profil: `http://localhost:8080/putAtelier/${body.photo_profil}` });
-      console.log('ity ilay body.image', body.photo_profil);
+  //   response.json().then((body) => {
+  //     this.setState({ photo_profil: `http://localhost:8080/putAtelier/${body.photo_profil}` });
+  //     console.log('ity ilay body.image', body.photo_profil);
 
-    });
-  });
+  //   });
+  // });
 }
 
   render() {
@@ -96,7 +97,7 @@ handleUploadImage(ev) {
           onChange={this.onChange}
           placeholder="Specialité de l'entreprise"
           name="Duree" /><br></br>
-        <input type="Number"
+        <input type="text"
           id = "inputtime"
           value={this.state.NombrePlacesDispo}
           onChange={this.onChange}
@@ -107,14 +108,14 @@ handleUploadImage(ev) {
           value={this.state.NombrePlacesRes}
           onChange={this.onChange}
           placeholder="nombre à recruter souhaité"
-          name="Place Res" /><br></br>       
-        <input type="Number"
+          name="NombrePlacesRes" /><br></br>       
+        <input type="text"
           id = "inputtime"
           value={this.state.Prix}
           onChange={this.onChange}
           placeholder="adresse entreprise"
           name="Prix" /><br/><br/><br/><br/><br/>   
-        <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br/>
+        {/* <input id="jtext" ref={(ref) => { this.uploadInput = ref; }} type="file" name="photo_profil"/><br/> */}
           <button className="btn btn-outline-orange" type="submit" onClick={() => {
                         confirmAlert({
                           customUI: () => {

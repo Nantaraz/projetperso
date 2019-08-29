@@ -21,6 +21,8 @@
     "mongoose": "^5.2.4",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "pdf2json": "^1.1.8",
+    "pdfreader": "^1.0.4",
     "validator": "^10.4.0"
   },
   "engines": {

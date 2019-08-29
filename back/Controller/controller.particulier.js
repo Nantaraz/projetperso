@@ -18,6 +18,8 @@ exports.Postuler = (req,res) => {
         console.log('inona ny ato o!'+imageFile1)
         console.log('inona ny ato o!'+imageFile2)
         let nomImage = id
+        // let nomImage1 = id + 1
+        // let nomImage2 = id + 2
         
         res.setHeader('Content-Type', 'text/plain');
 
@@ -40,17 +42,9 @@ exports.Postuler = (req,res) => {
             }
             else{
                 Particulier.findOne(
-                    //    {
-                    //     matricule: req.body.matricule
-                    // }
+                    
                     ).then(user=>{
-                        // if(user) {
-                            
-                        //     return res.status(400).json({
-                        //         matricule: 'déja fait le rendez-vous'
-                        //     });
-                        // }
-                        // else{   
+                       
                   
                 const particulier = new Particulier({
                     _id:id,
@@ -65,18 +59,20 @@ exports.Postuler = (req,res) => {
                     
                     
                 });
-                    Atelier.findByIdAndUpdate(use._id, { _id:use.id,
-                    id2:use.id2,
-                    Titre: req.body.Titre, 
-                    Description: req.body.Description,
-                    Date: req.body.Date,
-                    HoraireDebut: req.body.HoraireDebut , 
-                    Duree: req.body.Duree,
-                    NombrePlacesDispo: req.body.NombrePlacesDispo,
-                    NombrePlacesRes: req.body.NombrePlacesRes,
-                    Prix: req.body.Prix,
-                    visibilite:true,
-                    photo_profil:nomImage +'.pdf'
+                    Atelier.findByIdAndUpdate(use._id, { 
+                        _id:use.id,
+                        id2:use.id2,
+                        Titre: use.Titre, 
+                        Description: use.Description,
+                        Date: use.Date,
+                        HoraireDebut: use.HoraireDebut , 
+                        Duree: use.Duree,
+                        NombrePlacesDispo: use.NombrePlacesDispo,
+                        NombrePlacesRes: use.NombrePlacesRes,
+                        Prix: use.Prix,
+                        visibilite:true,
+                        photo_profil:use.photo_profil
+                    // photo_profil:nomImage +'.pdf'
                 
                 }).then(upd=>console.log("apdate"+upd)
                 )
